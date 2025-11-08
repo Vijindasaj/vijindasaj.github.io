@@ -7,11 +7,13 @@
   <style>
     /* ---------- THEME ---------- */
     :root {
-      --accent: #3fa9f5;
-      --accent-glow: #6ec6ff;
-      --bg-dark: #0a0f1f;
-      --bg-light: #10172b;
-      --text-light: #dfe6f3;
+      --accent: #0077ff;
+      --accent-light: #4da3ff;
+      --accent-bg: #eaf3ff;
+      --text-dark: #1a1a2e;
+      --text-muted: #4c4c6d;
+      --bg-light: #f8fbff;
+      --section-bg: #ffffff;
     }
 
     * {
@@ -26,8 +28,8 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top left, #0b132b, #060b18);
-      color: var(--text-light);
+      background: linear-gradient(180deg, #eaf3ff 0%, #f9fcff 100%);
+      color: var(--text-dark);
       overflow-x: hidden;
     }
 
@@ -36,14 +38,14 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(10, 15, 31, 0.7);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
-      padding: 12px 40px;
+      padding: 14px 40px;
       display: flex;
       justify-content: flex-end;
       gap: 25px;
       z-index: 1000;
-      box-shadow: 0 0 15px rgba(0, 140, 255, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 119, 255, 0.1);
     }
 
     header a {
@@ -54,8 +56,8 @@
     }
 
     header a:hover {
-      color: var(--accent-glow);
-      text-shadow: 0 0 8px var(--accent-glow);
+      color: var(--accent-light);
+      text-shadow: 0 0 6px var(--accent-light);
     }
 
     /* ---------- SECTION BASE ---------- */
@@ -66,7 +68,11 @@
       transform: translateY(40px);
       filter: blur(8px);
       transition: all 1s ease;
-      border-bottom: 1px solid rgba(63, 169, 245, 0.1);
+      background: var(--section-bg);
+      border-radius: 20px;
+      margin: 60px auto;
+      max-width: 1100px;
+      box-shadow: 0 4px 30px rgba(0, 119, 255, 0.05);
     }
 
     section.visible {
@@ -76,76 +82,80 @@
     }
 
     .title {
-      font-size: 38px;
+      font-size: 36px;
       color: var(--accent);
       font-weight: 700;
       margin-bottom: 12px;
-      text-shadow: 0 0 12px rgba(63, 169, 245, 0.4);
+      text-shadow: 0 0 10px rgba(77, 163, 255, 0.25);
     }
 
     .sub-text {
-      font-size: 18px;
+      font-size: 17px;
       max-width: 700px;
       line-height: 1.6;
-      color: #cdd6e6;
+      color: var(--text-muted);
     }
 
     /* ---------- PROJECTS ---------- */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
       margin-top: 25px;
     }
 
     .project-box {
-      background: var(--bg-light);
+      background: var(--accent-bg);
       padding: 25px;
       border-radius: 10px;
-      border: 1px solid rgba(63, 169, 245, 0.3);
-      box-shadow: 0 0 20px rgba(63, 169, 245, 0.08);
+      border: 1px solid rgba(0, 119, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 119, 255, 0.08);
       transition: all 0.3s ease;
     }
 
     .project-box:hover {
       transform: translateY(-6px);
-      box-shadow: 0 0 30px rgba(63, 169, 245, 0.25);
+      box-shadow: 0 0 25px rgba(0, 119, 255, 0.25);
       border-color: var(--accent);
+      background: #f0f8ff;
     }
 
     .project-box h2 {
       color: var(--accent);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       font-size: 20px;
     }
 
     .project-box p {
       font-size: 15px;
+      color: var(--text-muted);
       line-height: 1.5;
     }
 
     /* ---------- SKILLS ---------- */
     .skills-list span {
-      background: var(--bg-light);
-      margin: 5px;
+      background: var(--accent-bg);
+      margin: 6px;
       padding: 8px 14px;
       border-radius: 6px;
       display: inline-block;
-      border: 1px solid var(--accent);
+      border: 1px solid rgba(0, 119, 255, 0.3);
       transition: all 0.3s ease;
       font-size: 15px;
+      color: var(--text-dark);
     }
 
     .skills-list span:hover {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 0 15px var(--accent);
+      box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
     }
 
     /* ---------- CONTACT ---------- */
     .contact-info {
       font-size: 17px;
       line-height: 1.8;
+      color: var(--text-muted);
     }
 
     .contact-info a {
@@ -155,14 +165,11 @@
 
     footer {
       text-align: center;
-      padding: 30px;
-      background: #060b18;
-      border-top: 1px solid rgba(63, 169, 245, 0.2);
-      color: #aab6c4;
+      padding: 25px;
+      color: var(--text-muted);
       font-size: 14px;
     }
 
-    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
       header {
         justify-content: center;
@@ -172,6 +179,7 @@
 
       section {
         padding: 90px 30px;
+        margin: 40px 15px;
       }
 
       .title {
@@ -204,8 +212,10 @@
   <section id="education">
     <div class="title">Education</div>
     <p class="sub-text">
-      Currently pursuing Plus Two (Computer Science) at <b>St. Antony’s HSS, Pudukad</b>.<br />
-      Focused on developing analytical thinking, programming logic, and foundational understanding of artificial intelligence and machine learning concepts.
+      Currently pursuing Plus Two (Computer Science) at
+      <b>St. Antony’s HSS, Pudukad</b>.<br />
+      Focused on developing analytical thinking, programming logic, and
+      foundational understanding of artificial intelligence and machine learning.
     </p>
   </section>
 
@@ -213,8 +223,10 @@
   <section id="visit">
     <div class="title">Industrial Visit Experience</div>
     <p class="sub-text">
-      Participated in an insightful industrial visit to <b>ATEES Industrial Training Pvt. Ltd.</b><br />
-      Learned about real-world applications of web development, software design, and project management practices followed in a professional tech environment.
+      Participated in an insightful industrial visit to
+      <b>ATEES Industrial Training Pvt. Ltd.</b><br />
+      Gained valuable exposure to software development workflows, web technologies,
+      and real-world project management within a professional tech environment.
     </p>
   </section>
 
@@ -225,18 +237,9 @@
       <div class="project-box">
         <h2>Smart Study Hour Predictor</h2>
         <p>
-          A predictive ML model built using Linear & Logistic Regression to
-          calculate productivity and focus scores based on sleep, study time,
-          and phone usage. It provides personalized time-based study
-          recommendations.
-        </p>
-      </div>
-      <div class="project-box">
-        <h2>Weather Trend Analyzer</h2>
-        <p>
-          Data visualization project that uses real-world climate data to
-          show temperature and humidity trends using Python libraries such as
-          Matplotlib and Seaborn.
+          A predictive ML model using Linear & Logistic Regression that calculates productivity
+          and focus scores based on sleep, study time, and phone usage.
+          It suggests the best study time for optimal focus.
         </p>
       </div>
     </div>
