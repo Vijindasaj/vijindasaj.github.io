@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vijindas AJ - Portfolio</title>
   <style>
-    /* ---------- BASE STYLES ---------- */
+    /* ---------- THEME ---------- */
     :root {
       --accent: #3fa9f5;
       --accent-glow: #6ec6ff;
@@ -25,7 +25,7 @@
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       background: radial-gradient(circle at top left, #0b132b, #060b18);
       color: var(--text-light);
       overflow-x: hidden;
@@ -38,12 +38,12 @@
       width: 100%;
       background: rgba(10, 15, 31, 0.7);
       backdrop-filter: blur(10px);
-      padding: 15px 50px;
+      padding: 12px 40px;
       display: flex;
       justify-content: flex-end;
-      gap: 35px;
+      gap: 25px;
       z-index: 1000;
-      box-shadow: 0 0 20px rgba(0, 140, 255, 0.15);
+      box-shadow: 0 0 15px rgba(0, 140, 255, 0.15);
     }
 
     header a {
@@ -55,17 +55,18 @@
 
     header a:hover {
       color: var(--accent-glow);
-      text-shadow: 0 0 10px var(--accent-glow);
+      text-shadow: 0 0 8px var(--accent-glow);
     }
 
     /* ---------- SECTION BASE ---------- */
     section {
-      min-height: 100vh;
-      padding: 120px 80px;
+      min-height: 90vh;
+      padding: 100px 80px;
       opacity: 0;
       transform: translateY(40px);
       filter: blur(8px);
-      transition: all 1.2s ease;
+      transition: all 1s ease;
+      border-bottom: 1px solid rgba(63, 169, 245, 0.1);
     }
 
     section.visible {
@@ -75,102 +76,106 @@
     }
 
     .title {
-      font-size: 48px;
+      font-size: 38px;
       color: var(--accent);
       font-weight: 700;
-      margin-bottom: 15px;
-      text-shadow: 0 0 15px rgba(63, 169, 245, 0.4);
+      margin-bottom: 12px;
+      text-shadow: 0 0 12px rgba(63, 169, 245, 0.4);
     }
 
     .sub-text {
-      font-size: 20px;
-      max-width: 650px;
-      color: #cdd6e6;
+      font-size: 18px;
+      max-width: 700px;
       line-height: 1.6;
+      color: #cdd6e6;
     }
 
-    /* ---------- PROJECT BOX ---------- */
+    /* ---------- PROJECTS ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
     .project-box {
       background: var(--bg-light);
-      padding: 30px;
-      border-radius: 12px;
-      border-left: 4px solid var(--accent);
-      margin-bottom: 30px;
-      box-shadow: 0 4px 20px rgba(63, 169, 245, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid rgba(63, 169, 245, 0.3);
+      box-shadow: 0 0 20px rgba(63, 169, 245, 0.08);
+      transition: all 0.3s ease;
     }
 
     .project-box:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(63, 169, 245, 0.25);
+      box-shadow: 0 0 30px rgba(63, 169, 245, 0.25);
+      border-color: var(--accent);
+    }
+
+    .project-box h2 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .project-box p {
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     /* ---------- SKILLS ---------- */
     .skills-list span {
       background: var(--bg-light);
-      margin: 6px;
-      padding: 10px 16px;
-      border-radius: 8px;
+      margin: 5px;
+      padding: 8px 14px;
+      border-radius: 6px;
       display: inline-block;
       border: 1px solid var(--accent);
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(63, 169, 245, 0.1);
+      font-size: 15px;
     }
 
     .skills-list span:hover {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 0 20px var(--accent);
+      box-shadow: 0 0 15px var(--accent);
     }
 
-    /* ---------- FOOTER ---------- */
-    footer {
-      text-align: center;
-      padding: 40px;
-      background: #060b18;
-      border-top: 1px solid rgba(63, 169, 245, 0.2);
-      color: #aab6c4;
-      font-size: 15px;
-      letter-spacing: 0.5px;
+    /* ---------- CONTACT ---------- */
+    .contact-info {
+      font-size: 17px;
+      line-height: 1.8;
     }
 
-    footer a {
+    .contact-info a {
       color: var(--accent);
       text-decoration: none;
     }
 
-    /* ---------- MOTION BLUR SCROLL ---------- */
-    @keyframes fadeSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-        filter: blur(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    .animate {
-      animation: fadeSlideIn 1.2s ease forwards;
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #060b18;
+      border-top: 1px solid rgba(63, 169, 245, 0.2);
+      color: #aab6c4;
+      font-size: 14px;
     }
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px) {
       header {
         justify-content: center;
-        padding: 15px 20px;
-        gap: 20px;
+        padding: 12px 20px;
+        gap: 15px;
       }
 
       section {
-        padding: 100px 30px;
+        padding: 90px 30px;
       }
 
       .title {
-        font-size: 36px;
+        font-size: 30px;
       }
     }
   </style>
@@ -178,32 +183,66 @@
 <body>
   <header>
     <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#visit">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </header>
 
+  <!-- ABOUT -->
   <section id="about">
     <div class="title">Hello, I'm Vijindas AJ</div>
     <p class="sub-text">
-      AI & ML Student (12th Computer Science)<br />
-      Curious about data models, algorithms & real-world automation.
-      I enjoy solving problems and building clean applications using machine learning.
+      AI & ML Student (12th Computer Science).<br />
+      Passionate about exploring data, algorithms, and real-world automation.
+      I enjoy building efficient, insightful applications powered by machine learning.
     </p>
   </section>
 
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="title">Education</div>
+    <p class="sub-text">
+      Currently pursuing Plus Two (Computer Science) at <b>St. Antony’s HSS, Pudukad</b>.<br />
+      Focused on developing analytical thinking, programming logic, and foundational understanding of artificial intelligence and machine learning concepts.
+    </p>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="visit">
+    <div class="title">Industrial Visit Experience</div>
+    <p class="sub-text">
+      Participated in an insightful industrial visit to <b>ATEES Industrial Training Pvt. Ltd.</b><br />
+      Learned about real-world applications of web development, software design, and project management practices followed in a professional tech environment.
+    </p>
+  </section>
+
+  <!-- PROJECTS -->
   <section id="projects">
     <div class="title">Projects</div>
-    <div class="project-box">
-      <h2>SMART STUDY HOUR PREDICTOR</h2>
-      <p>
-        Predicts productivity & focus score using Linear & Logistic Regression
-        based on sleep, study hours and device usage. It also recommends
-        whether you should study in the morning, afternoon, or evening for best performance.
-      </p>
+    <div class="projects-grid">
+      <div class="project-box">
+        <h2>Smart Study Hour Predictor</h2>
+        <p>
+          A predictive ML model built using Linear & Logistic Regression to
+          calculate productivity and focus scores based on sleep, study time,
+          and phone usage. It provides personalized time-based study
+          recommendations.
+        </p>
+      </div>
+      <div class="project-box">
+        <h2>Weather Trend Analyzer</h2>
+        <p>
+          Data visualization project that uses real-world climate data to
+          show temperature and humidity trends using Python libraries such as
+          Matplotlib and Seaborn.
+        </p>
+      </div>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills">
     <div class="title">Skills</div>
     <div class="skills-list">
@@ -217,30 +256,28 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <div class="title">Contact</div>
-    <p>
-      Email:
-      <a href="mailto:zudqlol@gmail.com">zudqlol@gmail.com</a>
-    </p>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:zudqlol@gmail.com">zudqlol@gmail.com</a></p>
+      <p>Phone: <a href="tel:+917012977405">+91 70129 77405</a></p>
+      <p>GitHub: <a href="https://github.com/Vijindasaj" target="_blank">@Vijindasaj</a></p>
+    </div>
   </section>
 
   <footer>© 2025 Vijindas AJ — Portfolio</footer>
 
-  <!-- ---------- SCROLL ANIMATION SCRIPT ---------- -->
   <script>
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("visible");
         });
       },
       { threshold: 0.2 }
     );
-
     sections.forEach((sec) => observer.observe(sec));
   </script>
 </body>
