@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vijindas AJ - Portfolio</title>
   <style>
-    /* ---------- THEME ---------- */
     :root {
-      --accent: #0077ff;
-      --accent-light: #4da3ff;
-      --accent-bg: #eaf3ff;
-      --text-dark: #1a1a2e;
-      --text-muted: #4c4c6d;
-      --bg-light: #f8fbff;
-      --section-bg: #ffffff;
+      --accent: #007bff;
+      --accent-light: #66b3ff;
+      --bg-light: #f3f9ff;
+      --text-dark: #0a2342;
     }
 
     * {
@@ -28,24 +24,46 @@
 
     body {
       font-family: "Poppins", sans-serif;
-      background: linear-gradient(180deg, #eaf3ff 0%, #f9fcff 100%);
       color: var(--text-dark);
+      background: linear-gradient(270deg, #e3f2ff, #b3e5fc, #d8f1ff);
+      background-size: 600% 600%;
+      animation: gradientShift 18s ease infinite;
       overflow-x: hidden;
+      position: relative;
     }
 
-    /* ---------- HEADER ---------- */
+    /* Subtle texture overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png');
+      opacity: 0.2;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(10px);
-      padding: 14px 40px;
+      padding: 12px 40px;
       display: flex;
       justify-content: flex-end;
       gap: 25px;
       z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0, 119, 255, 0.1);
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.15);
     }
 
     header a {
@@ -57,10 +75,9 @@
 
     header a:hover {
       color: var(--accent-light);
-      text-shadow: 0 0 6px var(--accent-light);
+      text-shadow: 0 0 8px var(--accent-light);
     }
 
-    /* ---------- SECTION BASE ---------- */
     section {
       min-height: 90vh;
       padding: 100px 80px;
@@ -68,11 +85,7 @@
       transform: translateY(40px);
       filter: blur(8px);
       transition: all 1s ease;
-      background: var(--section-bg);
-      border-radius: 20px;
-      margin: 60px auto;
-      max-width: 1100px;
-      box-shadow: 0 4px 30px rgba(0, 119, 255, 0.05);
+      border-bottom: 1px solid rgba(0, 123, 255, 0.1);
     }
 
     section.visible {
@@ -82,109 +95,77 @@
     }
 
     .title {
-      font-size: 36px;
+      font-size: 38px;
       color: var(--accent);
       font-weight: 700;
       margin-bottom: 12px;
-      text-shadow: 0 0 10px rgba(77, 163, 255, 0.25);
+      text-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
     }
 
     .sub-text {
-      font-size: 17px;
+      font-size: 18px;
       max-width: 700px;
       line-height: 1.6;
-      color: var(--text-muted);
+      color: #093b74;
     }
 
-    /* ---------- PROJECTS ---------- */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 25px;
       margin-top: 25px;
     }
 
     .project-box {
-      background: var(--accent-bg);
+      background: #ffffffcc;
       padding: 25px;
       border-radius: 10px;
-      border: 1px solid rgba(0, 119, 255, 0.2);
-      box-shadow: 0 0 20px rgba(0, 119, 255, 0.08);
+      border: 1px solid rgba(0, 123, 255, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.08);
       transition: all 0.3s ease;
     }
 
     .project-box:hover {
       transform: translateY(-6px);
-      box-shadow: 0 0 25px rgba(0, 119, 255, 0.25);
-      border-color: var(--accent);
-      background: #f0f8ff;
+      box-shadow: 0 6px 30px rgba(0, 123, 255, 0.25);
     }
 
     .project-box h2 {
       color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-size: 20px;
     }
 
     .project-box p {
       font-size: 15px;
-      color: var(--text-muted);
       line-height: 1.5;
     }
 
-    /* ---------- SKILLS ---------- */
     .skills-list span {
-      background: var(--accent-bg);
-      margin: 6px;
+      background: #ffffffdd;
+      margin: 5px;
       padding: 8px 14px;
       border-radius: 6px;
       display: inline-block;
-      border: 1px solid rgba(0, 119, 255, 0.3);
+      border: 1px solid var(--accent);
       transition: all 0.3s ease;
       font-size: 15px;
-      color: var(--text-dark);
     }
 
     .skills-list span:hover {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 0 15px rgba(0, 119, 255, 0.5);
-    }
-
-    /* ---------- CONTACT ---------- */
-    .contact-info {
-      font-size: 17px;
-      line-height: 1.8;
-      color: var(--text-muted);
-    }
-
-    .contact-info a {
-      color: var(--accent);
-      text-decoration: none;
+      box-shadow: 0 0 15px var(--accent);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      color: var(--text-muted);
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(0, 123, 255, 0.2);
+      backdrop-filter: blur(6px);
       font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        justify-content: center;
-        padding: 12px 20px;
-        gap: 15px;
-      }
-
-      section {
-        padding: 90px 30px;
-        margin: 40px 15px;
-      }
-
-      .title {
-        font-size: 30px;
-      }
+      color: #093b74;
     }
   </style>
 </head>
@@ -192,60 +173,46 @@
   <header>
     <a href="#about">About</a>
     <a href="#education">Education</a>
-    <a href="#visit">Experience</a>
+    <a href="#visit">Industrial Visit</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </header>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="title">Hello, I'm Vijindas AJ</div>
     <p class="sub-text">
-      AI & ML Student (12th Computer Science).<br />
-      Passionate about exploring data, algorithms, and real-world automation.
-      I enjoy building efficient, insightful applications powered by machine learning.
+      AI & ML Student (12th Computer Science)<br>
+      Curious about data models, algorithms & real-world automation. I enjoy solving problems and building clean applications using machine learning.
     </p>
   </section>
 
-  <!-- EDUCATION -->
   <section id="education">
     <div class="title">Education</div>
     <p class="sub-text">
-      Currently pursuing Plus Two (Computer Science) at
-      <b>St. Antony’s HSS, Pudukad</b>.<br />
-      Focused on developing analytical thinking, programming logic, and
-      foundational understanding of artificial intelligence and machine learning.
+      Currently pursuing Plus Two (Computer Science) at <strong>St. Antony’s HSS, Pudukad</strong>.
     </p>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="visit">
-    <div class="title">Industrial Visit Experience</div>
+    <div class="title">Learning Beyond Classrooms</div>
     <p class="sub-text">
-      Participated in an insightful industrial visit to
-      <b>ATEES Industrial Training Pvt. Ltd.</b><br />
-      Gained valuable exposure to software development workflows, web technologies,
-      and real-world project management within a professional tech environment.
+      Participated in an <strong>Industrial Visit</strong> at <strong>ATEES Industrial Training Pvt. Ltd.</strong> — gaining hands-on exposure to real-world software development and industry practices.
     </p>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="title">Projects</div>
     <div class="projects-grid">
       <div class="project-box">
         <h2>Smart Study Hour Predictor</h2>
         <p>
-          A predictive ML model using Linear & Logistic Regression that calculates productivity
-          and focus scores based on sleep, study time, and phone usage.
-          It suggests the best study time for optimal focus.
+          A machine learning model that predicts productivity & focus scores based on daily habits like sleep, study hours, and device usage. It also recommends the best time to study for peak performance.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="title">Skills</div>
     <div class="skills-list">
@@ -259,29 +226,47 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="title">Contact</div>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:zudqlol@gmail.com">zudqlol@gmail.com</a></p>
-      <p>Phone: <a href="tel:+917012977405">+91 70129 77405</a></p>
-      <p>GitHub: <a href="https://github.com/Vijindasaj" target="_blank">@Vijindasaj</a></p>
-    </div>
+    <p class="sub-text">
+      📧 Email: <a href="mailto:zudqlol@gmail.com" style="color:var(--accent);">zudqlol@gmail.com</a><br>
+      📞 Phone: <span style="color:var(--accent);">+91 7012977405</span><br>
+      🐙 GitHub: <a href="https://github.com/Vijindasaj" style="color:var(--accent);">Vijindasaj</a>
+    </p>
   </section>
 
   <footer>© 2025 Vijindas AJ — Portfolio</footer>
 
+  <!-- Section scroll fade-in -->
   <script>
     const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.2 }
-    );
-    sections.forEach((sec) => observer.observe(sec));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
+
+  <!-- Vanta.js background animation -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+      el: "body",
+      mouseControls: true,
+      touchControls: true,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x88c7ff,
+      shininess: 40.00,
+      waveHeight: 15.00,
+      waveSpeed: 0.8,
+      zoom: 0.9
+    })
   </script>
 </body>
 </html>
