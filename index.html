@@ -1,108 +1,247 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vijindas AJ - Portfolio</title>
   <style>
-    body {
+    /* ---------- BASE STYLES ---------- */
+    :root {
+      --accent: #3fa9f5;
+      --accent-glow: #6ec6ff;
+      --bg-dark: #0a0f1f;
+      --bg-light: #10172b;
+      --text-light: #dfe6f3;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0000FF;
-      color: #e0e0e0;
+      padding: 0;
+    }
+
+    html {
       scroll-behavior: smooth;
-    }header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 15px 50px;
-  display: flex;
-  justify-content: flex-end;
-  gap: 30px;
-  z-index: 1000;
-  backdrop-filter: blur(8px);
-}
+    }
 
-header a {
-  color: #00ffcc;
-  text-decoration: none;
-  font-size: 17px;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left, #0b132b, #060b18);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
 
-section {
-  min-height: 100vh;
-  padding: 120px 60px;
-}
+    /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 15, 31, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 15px 50px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 35px;
+      z-index: 1000;
+      box-shadow: 0 0 20px rgba(0, 140, 255, 0.15);
+    }
 
-.title {
-  font-size: 45px;
-  color: #00ffcc;
-  font-weight: bold;
-}
+    header a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
 
-.sub-text {
-  font-size: 20px;
-  max-width: 600px;
-  margin-top: 10px;
-}
+    header a:hover {
+      color: var(--accent-glow);
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
 
-.skills-list span {
-  background: #1b1b1b;
-  margin: 6px;
-  padding: 10px 14px;
-  border-radius: 6px;
-  display: inline-block;
-  border: 1px solid #00ffcc;
-}
+    /* ---------- SECTION BASE ---------- */
+    section {
+      min-height: 100vh;
+      padding: 120px 80px;
+      opacity: 0;
+      transform: translateY(40px);
+      filter: blur(8px);
+      transition: all 1.2s ease;
+    }
 
-.project-box {
-  background: #151515;
-  padding: 25px;
-  border-radius: 10px;
-  border-left: 4px solid #00ffcc;
-  margin-bottom: 30px;
-}
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  background: #000;
-  border-top: 1px solid #222;
-  margin-top: 50px;
-}
+    .title {
+      font-size: 48px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 0 15px rgba(63, 169, 245, 0.4);
+    }
 
+    .sub-text {
+      font-size: 20px;
+      max-width: 650px;
+      color: #cdd6e6;
+      line-height: 1.6;
+    }
+
+    /* ---------- PROJECT BOX ---------- */
+    .project-box {
+      background: var(--bg-light);
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid var(--accent);
+      margin-bottom: 30px;
+      box-shadow: 0 4px 20px rgba(63, 169, 245, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(63, 169, 245, 0.25);
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-list span {
+      background: var(--bg-light);
+      margin: 6px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(63, 169, 245, 0.1);
+    }
+
+    .skills-list span:hover {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #060b18;
+      border-top: 1px solid rgba(63, 169, 245, 0.2);
+      color: #aab6c4;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ---------- MOTION BLUR SCROLL ---------- */
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .animate {
+      animation: fadeSlideIn 1.2s ease forwards;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      header {
+        justify-content: center;
+        padding: 15px 20px;
+        gap: 20px;
+      }
+
+      section {
+        padding: 100px 30px;
+      }
+
+      .title {
+        font-size: 36px;
+      }
+    }
   </style>
 </head>
-<body><header>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</header><section id="about">
-  <div class="title">Hello, I'm Vijindas AJ</div>
-  <p class="sub-text">AI & ML Student (12th Computer Science)<br>
-  Curious about data models, algorithms & real-world automation. I enjoy solving problems and building clean applications using machine learning.</p>
-</section><section id="projects">
-  <div class="title">Projects</div>  <div class="project-box">
-    <h2>SMART STUDY HOUR PREDICTOR</h2>
-    <p>Predicts productivity & focus score using Linear & Logistic Regression based on sleep, study hours and device usage. It also recommends whether you should study in the morning, afternoon, or evening for best performance.</p>
-  </div>
-</section><section id="skills">
-  <div class="title">Skills</div>
-  <div class="skills-list">
-    <span>Machine Learning</span>
-    <span>Python</span>
-    <span>Numpy</span>
-    <span>Pandas</span>
-    <span>Matplotlib</span>
-    <span>Seaborn</span>
-    <span>Data Analysis</span>
-  </div>
-</section><section id="contact">
-  <div class="title">Contact</div>
-  <p>Email: <a href="mailto:zudqlol@gmail.com" style="color:#00ffcc;">zudqlol@gmail.com</a></p>
-</section><footer>
-  © 2025 Vijindas AJ — Portfolio
-</footer></body>
+<body>
+  <header>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </header>
 
+  <section id="about">
+    <div class="title">Hello, I'm Vijindas AJ</div>
+    <p class="sub-text">
+      AI & ML Student (12th Computer Science)<br />
+      Curious about data models, algorithms & real-world automation.
+      I enjoy solving problems and building clean applications using machine learning.
+    </p>
+  </section>
+
+  <section id="projects">
+    <div class="title">Projects</div>
+    <div class="project-box">
+      <h2>SMART STUDY HOUR PREDICTOR</h2>
+      <p>
+        Predicts productivity & focus score using Linear & Logistic Regression
+        based on sleep, study hours and device usage. It also recommends
+        whether you should study in the morning, afternoon, or evening for best performance.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="title">Skills</div>
+    <div class="skills-list">
+      <span>Machine Learning</span>
+      <span>Python</span>
+      <span>Numpy</span>
+      <span>Pandas</span>
+      <span>Matplotlib</span>
+      <span>Seaborn</span>
+      <span>Data Analysis</span>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="title">Contact</div>
+    <p>
+      Email:
+      <a href="mailto:zudqlol@gmail.com">zudqlol@gmail.com</a>
+    </p>
+  </section>
+
+  <footer>© 2025 Vijindas AJ — Portfolio</footer>
+
+  <!-- ---------- SCROLL ANIMATION SCRIPT ---------- -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+  </script>
+</body>
 </html>
