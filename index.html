@@ -1,170 +1,107 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Vijindas AJ — Portfolio</title>
-  <meta name="description" content="Vijindas AJ — AI & ML student. Projects in machine learning and data analysis." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vijindas AJ - Portfolio</title>
   <style>
-    :root{
-      --bg:#0b1020;
-      --card:#0f1724;
-      --muted:#99a3b3;
-      --accent:#6ee7b7;
-      --glass: rgba(255,255,255,0.03);
-      color-scheme: dark;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#05060a 0%, var(--bg) 100%);color:#e6eef6}
-    .container{max-width:980px;margin:36px auto;padding:28px}header{display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:14px}
-.avatar{width:72px;height:72px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#4dd0e1);display:flex;align-items:center;justify-content:center;font-weight:800;color:#061016}
-h1{font-size:20px;margin:0}
-p.lead{margin:6px 0 0;color:var(--muted);font-size:14px}
-
-nav{display:flex;gap:12px}
-nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-size:14px}
-nav a:hover{color:#fff;background:var(--glass)}
-
-main{display:grid;grid-template-columns:1fr 340px;gap:26px;margin-top:28px}
-@media(max-width:880px){main{grid-template-columns:1fr}
-  .avatar{width:60px;height:60px}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+    }header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 50px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
 }
 
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;padding:18px}
+header a {
+  color: #00ffcc;
+  text-decoration: none;
+  font-size: 17px;
+}
 
-/* About */
-.about .name{font-size:26px;margin:0}
-.about .role{color:var(--muted);margin-top:6px}
-.about p{line-height:1.5;color:#dbe8f3}
+section {
+  min-height: 100vh;
+  padding: 120px 60px;
+}
 
-/* Skills */
-.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.chip{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+.title {
+  font-size: 45px;
+  color: #00ffcc;
+  font-weight: bold;
+}
 
-/* Projects */
-.project{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
-.project h3{margin:0;font-size:16px}
-.project p{margin:0;color:var(--muted);font-size:14px}
-.meta{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px}
-.btn{display:inline-block;padding:8px 12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--accent);text-decoration:none;font-weight:600}
+.sub-text {
+  font-size: 20px;
+  max-width: 600px;
+  margin-top: 10px;
+}
 
-/* Right column */
-aside .section{margin-bottom:14px}
-.contact a{display:block;color:var(--muted);text-decoration:none;margin-bottom:6px}
+.skills-list span {
+  background: #1b1b1b;
+  margin: 6px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  display: inline-block;
+  border: 1px solid #00ffcc;
+}
 
-footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+.project-box {
+  background: #151515;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #00ffcc;
+  margin-bottom: 30px;
+}
 
-/* subtle floating accent */
-.accent-blob{position:fixed;right:-120px;bottom:-120px;width:300px;height:300px;border-radius:50%;background:linear-gradient(135deg, rgba(110,231,183,0.12), rgba(77,208,225,0.06));filter:blur(30px);pointer-events:none}
-
-/* Small utilities */
-.tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #000;
+  border-top: 1px solid #222;
+  margin-top: 50px;
+}
 
   </style>
 </head>
-<body>
-  <div class="accent-blob" aria-hidden></div>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="avatar">VJ</div>
-        <div>
-          <h1>Vijindas AJ</h1>
-          <p class="lead">AI & ML student • 12th (Computer Science)</p>
-        </div>
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header><main>
-  <section>
-    <div id="about" class="card about">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
-        <div>
-          <p class="name">Hello — I’m Vijindas AJ</p>
-          <p class="role">AI & ML student | Curious about data, models & real‑world impact</p>
-        </div>
-        <div class="tag">Dark • Modern</div>
-      </div>
-
-      <p style="margin-top:14px">My name is <strong>Vijindas AJ</strong>. I’m an AI & ML student currently completing 12th grade with Computer Science as my stream. I’m fascinated by artificial intelligence and enjoy diving into algorithms and data — exploring how models can help solve everyday problems. I like building simple, reliable tools and learning the maths and code behind machine learning.</p>
-
-      <div style="margin-top:16px">
-        <h4 style="margin:0 0 8px 0">Featured Project</h4>
-        <div class="project">
-          <h3>SMART STUDY HOUR PREDICTOR</h3>
-          <p>Predicts focus and productivity scores using linear & logistic regression and suggests an ideal study time (morning / noon / evening) based on study hours, mobile usage, and sleep data.</p>
-          <div class="meta">
-            <span>ML • Linear Regression • Logistic Regression • Data Analysis</span>
-            <span style="margin-left:auto"><a class="btn" href="#projects">Learn more</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="projects" class="card" style="margin-top:18px">
-      <h3 style="margin-top:0">Projects</h3>
-      <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
-        <div class="project">
-          <h3>SMART STUDY HOUR PREDICTOR</h3>
-          <p>Uses linear regression and logistic regression to estimate a student's focus and productivity scores. After analysing study hours, mobile usage, and sleep patterns it suggests whether morning, noon or evening is best for studying.</p>
-          <div class="meta">
-            <span>Skills: Python, NumPy, Pandas, Matplotlib</span>
-            <a class="btn" href="mailto:zudqlol@gmail.com">Request code</a>
-          </div>
-        </div>
-
-        <!-- Add more projects here if you want -->
-
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:18px">
-      <h3 style="margin-top:0">Education</h3>
-      <p style="margin:6px 0 0">12th – Computer Science stream<br>St Antony's HHS, Pudukad</p>
-    </div>
-  </section>
-
-  <aside>
-    <div class="card section" id="skills">
-      <h4 style="margin-top:0">Skills</h4>
-      <div class="skills" style="margin-top:10px">
-        <span class="chip">Machine Learning</span>
-        <span class="chip">NumPy</span>
-        <span class="chip">Pandas</span>
-        <span class="chip">Matplotlib</span>
-        <span class="chip">Seaborn</span>
-        <span class="chip">Data Analysis</span>
-      </div>
-    </div>
-
-    <div class="card section contact" id="contact">
-      <h4 style="margin-top:0">Contact</h4>
-      <a href="mailto:zudqlol@gmail.com">zudqlol@gmail.com</a>
-      <a href="#">GitHub: (no link yet)</a>
-      <div style="margin-top:12px">
-        <a class="btn" href="mailto:zudqlol@gmail.com">Email me</a>
-      </div>
-    </div>
-
-    <div class="card section" style="text-align:center">
-      <small style="color:var(--muted)">Want this live on GitHub Pages?<br>Download the file and push it to a repo named <code>yourusername.github.io</code>.</small>
-    </div>
-  </aside>
-</main>
-
-<footer>
-  Built by Vijindas • AI & ML student • Designed for clarity
-</footer>
-
+<body><header>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</header><section id="about">
+  <div class="title">Hello, I'm Vijindas AJ</div>
+  <p class="sub-text">AI & ML Student (12th Computer Science)<br>
+  Curious about data models, algorithms & real-world automation. I enjoy solving problems and building clean applications using machine learning.</p>
+</section><section id="projects">
+  <div class="title">Projects</div>  <div class="project-box">
+    <h2>SMART STUDY HOUR PREDICTOR</h2>
+    <p>Predicts productivity & focus score using Linear & Logistic Regression based on sleep, study hours and device usage. It also recommends whether you should study in the morning, afternoon, or evening for best performance.</p>
   </div>
-</body>
+</section><section id="skills">
+  <div class="title">Skills</div>
+  <div class="skills-list">
+    <span>Machine Learning</span>
+    <span>Python</span>
+    <span>Numpy</span>
+    <span>Pandas</span>
+    <span>Matplotlib</span>
+    <span>Seaborn</span>
+    <span>Data Analysis</span>
+  </div>
+</section><section id="contact">
+  <div class="title">Contact</div>
+  <p>Email: <a href="mailto:zudqlol@gmail.com" style="color:#00ffcc;">zudqlol@gmail.com</a></p>
+</section><footer>
+  © 2025 Vijindas AJ — Portfolio
+</footer></body>
 </html>
