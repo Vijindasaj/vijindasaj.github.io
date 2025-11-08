@@ -7,8 +7,7 @@
   <style>
     :root {
       --accent: #007bff;
-      --accent-light: #66b3ff;
-      --bg-light: #f3f9ff;
+      --accent-light: #6cbaff;
       --text-dark: #0a2342;
     }
 
@@ -25,9 +24,9 @@
     body {
       font-family: "Poppins", sans-serif;
       color: var(--text-dark);
-      background: linear-gradient(270deg, #e3f2ff, #b3e5fc, #d8f1ff);
+      background: linear-gradient(270deg, #f2f9ff, #d9edff, #e8f6ff);
       background-size: 600% 600%;
-      animation: gradientShift 18s ease infinite;
+      animation: gradientShift 60s ease-in-out infinite;
       overflow-x: hidden;
       position: relative;
     }
@@ -41,7 +40,7 @@
       width: 100%;
       height: 100%;
       background: url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png');
-      opacity: 0.2;
+      opacity: 0.1;
       z-index: -1;
       pointer-events: none;
     }
@@ -56,14 +55,14 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(10px);
       padding: 12px 40px;
       display: flex;
       justify-content: flex-end;
       gap: 25px;
       z-index: 1000;
-      box-shadow: 0 0 15px rgba(0, 123, 255, 0.15);
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.1);
     }
 
     header a {
@@ -84,7 +83,7 @@
       opacity: 0;
       transform: translateY(40px);
       filter: blur(8px);
-      transition: all 1s ease;
+      transition: all 1.5s ease;
       border-bottom: 1px solid rgba(0, 123, 255, 0.1);
     }
 
@@ -99,7 +98,7 @@
       color: var(--accent);
       font-weight: 700;
       margin-bottom: 12px;
-      text-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+      text-shadow: 0 0 10px rgba(0, 123, 255, 0.15);
     }
 
     .sub-text {
@@ -117,17 +116,17 @@
     }
 
     .project-box {
-      background: #ffffffcc;
+      background: rgba(255, 255, 255, 0.85);
       padding: 25px;
       border-radius: 10px;
-      border: 1px solid rgba(0, 123, 255, 0.3);
+      border: 1px solid rgba(0, 123, 255, 0.25);
       box-shadow: 0 4px 20px rgba(0, 123, 255, 0.08);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .project-box:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 30px rgba(0, 123, 255, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
     }
 
     .project-box h2 {
@@ -142,7 +141,7 @@
     }
 
     .skills-list span {
-      background: #ffffffdd;
+      background: rgba(255, 255, 255, 0.85);
       margin: 5px;
       padding: 8px 14px;
       border-radius: 6px;
@@ -237,7 +236,7 @@
 
   <footer>© 2025 Vijindas AJ — Portfolio</footer>
 
-  <!-- Section scroll fade-in -->
+  <!-- Scroll reveal -->
   <script>
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
@@ -249,22 +248,22 @@
     sections.forEach(sec => observer.observe(sec));
   </script>
 
-  <!-- Vanta.js background animation -->
+  <!-- Gentle wave animation -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
   <script>
     VANTA.WAVES({
       el: "body",
-      mouseControls: true,
-      touchControls: true,
+      mouseControls: false,
+      touchControls: false,
       minHeight: 200.00,
       minWidth: 200.00,
       scale: 1.00,
       scaleMobile: 1.00,
-      color: 0x88c7ff,
-      shininess: 40.00,
-      waveHeight: 15.00,
-      waveSpeed: 0.8,
+      color: 0xa8d8ff,
+      shininess: 10.00,
+      waveHeight: 8.00,
+      waveSpeed: 0.25,
       zoom: 0.9
     })
   </script>
