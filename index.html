@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vijindas AJ - Portfolio</title>
-
   <style>
     :root {
       --accent: #007bff;
@@ -13,27 +12,37 @@
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
     }
 
-    /* ---------- PAGE SNAP ---------- */
     body {
-      height: 100vh;
-      overflow-x: hidden;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
       font-family: "Poppins", sans-serif;
-
-      /* Background gradient */
+      color: var(--text-dark);
       background: linear-gradient(270deg, #f2f9ff, #d9edff, #e8f6ff);
       background-size: 600% 600%;
       animation: gradientShift 60s ease-in-out infinite;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Subtle texture overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png');
+      opacity: 0.1;
+      z-index: -1;
+      pointer-events: none;
     }
 
     @keyframes gradientShift {
@@ -42,36 +51,25 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* VANTA background container */
-    #vanta-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100%;
-      z-index: -1;
-    }
-
-    /* ----- HEADER ----- */
     header {
       position: fixed;
       top: 0;
       width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
       padding: 12px 40px;
       display: flex;
       justify-content: flex-end;
       gap: 25px;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 15px rgba(0,123,255,0.1);
       z-index: 1000;
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.1);
     }
 
     header a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
-      transition: 0.3s ease;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
     }
 
     header a:hover {
@@ -79,25 +77,14 @@
       text-shadow: 0 0 8px var(--accent-light);
     }
 
-    /* ----- UNIQUE PAGE TINTS ----- */
-    section:nth-child(odd) {
-      background: rgba(255,255,255,0.08);
-    }
-    section:nth-child(even) {
-      background: rgba(255,255,255,0.04);
-    }
-
-    /* ----- SECTIONS (FULL PAGE) ----- */
     section {
-      height: 100vh;   
-      scroll-snap-align: start;
-
-      padding: 120px 80px 60px;
-
+      min-height: 90vh;
+      padding: 100px 80px;
       opacity: 0;
       transform: translateY(40px);
-      filter: blur(6px);
-      transition: 1.3s ease;
+      filter: blur(8px);
+      transition: all 1.5s ease;
+      border-bottom: 1px solid rgba(0, 123, 255, 0.1);
     }
 
     section.visible {
@@ -108,19 +95,19 @@
 
     .title {
       font-size: 38px;
-      font-weight: 700;
       color: var(--accent);
+      font-weight: 700;
       margin-bottom: 12px;
+      text-shadow: 0 0 10px rgba(0, 123, 255, 0.15);
     }
 
     .sub-text {
       font-size: 18px;
-      color: #093b74;
       max-width: 700px;
       line-height: 1.6;
+      color: #093b74;
     }
 
-    /* ----- PROJECT GRID ----- */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -129,26 +116,39 @@
     }
 
     .project-box {
-      background: rgba(255,255,255,0.85);
-      border: 1px solid rgba(0,123,255,0.25);
+      background: rgba(255, 255, 255, 0.85);
       padding: 25px;
       border-radius: 10px;
-      transition: 0.4s ease;
+      border: 1px solid rgba(0, 123, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.08);
+      transition: all 0.4s ease;
     }
 
     .project-box:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,123,255,0.15);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+    }
+
+    .project-box h2 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .project-box p {
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .skills-list span {
-      display: inline-block;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid var(--accent);
+      background: rgba(255, 255, 255, 0.85);
+      margin: 5px;
       padding: 8px 14px;
       border-radius: 6px;
-      margin: 6px;
-      transition: 0.3s ease;
+      display: inline-block;
+      border: 1px solid var(--accent);
+      transition: all 0.3s ease;
+      font-size: 15px;
     }
 
     .skills-list span:hover {
@@ -158,24 +158,17 @@
     }
 
     footer {
-      height: 40vh;
-      scroll-snap-align: start;
       text-align: center;
-      padding-top: 120px;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(3px);
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(0, 123, 255, 0.2);
+      backdrop-filter: blur(6px);
       font-size: 14px;
       color: #093b74;
     }
   </style>
 </head>
-
 <body>
-
-  <!-- VANTA BACKGROUND -->
-  <div id="vanta-bg"></div>
-
-  <!-- HEADER -->
   <header>
     <a href="#about">About</a>
     <a href="#education">Education</a>
@@ -185,12 +178,11 @@
     <a href="#contact">Contact</a>
   </header>
 
-  <!-- PAGES -->
   <section id="about">
     <div class="title">Hello, I'm Vijindas AJ</div>
     <p class="sub-text">
       AI & ML Student <br>
-      Curious about data models, algorithms & real-world automation.
+      Curious about data models, algorithms & real-world automation. I enjoy solving problems and building clean applications using machine learning.
     </p>
   </section>
 
@@ -204,7 +196,7 @@
   <section id="visit">
     <div class="title">Learning Beyond Classrooms</div>
     <p class="sub-text">
-      Participated in an <strong>Industrial Visit</strong> at <strong>ATEES Industrial Training Pvt. Ltd.</strong>
+      Participated in an <strong>Industrial Visit</strong> at <strong>ATEES Industrial Training Pvt. Ltd.</strong> — gaining hands-on exposure to real-world software development and industry practices.
     </p>
   </section>
 
@@ -214,7 +206,7 @@
       <div class="project-box">
         <h2>Smart Study Hour Predictor</h2>
         <p>
-          A machine learning model that predicts productivity & focus scores.
+          A machine learning model that predicts productivity & focus scores based on daily habits like sleep, study hours, and device usage. It also recommends the best time to study for peak performance.
         </p>
       </div>
     </div>
@@ -236,9 +228,9 @@
   <section id="contact">
     <div class="title">Contact</div>
     <p class="sub-text">
-      📧 zudqlol@gmail.com <br>
-      📞 +91 7012977405 <br>
-      🐙 GitHub: Vijindasaj
+      📧 Email: <a href="mailto:zudqlol@gmail.com" style="color:var(--accent);">zudqlol@gmail.com</a><br>
+      📞 Phone: <span style="color:var(--accent);">+91 7012977405</span><br>
+      🐙 GitHub: <a href="https://github.com/Vijindasaj" style="color:var(--accent);">Vijindasaj</a>
     </p>
   </section>
 
@@ -251,30 +243,32 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("visible");
       });
-    }, { threshold: 0.18 });
+    }, { threshold: 0.15 });
 
     sections.forEach(sec => observer.observe(sec));
   </script>
 
-  <!-- Vanta Waves -->
+  <!-- Gentle wave animation -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
   <script>
     VANTA.WAVES({
-      el: "#vanta-bg",
+      el: "body",
       mouseControls: false,
       touchControls: false,
-      minHeight: 200,
-      minWidth: 200,
-      scale: 1.0,
-      scaleMobile: 1.0,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
       color: 0xa8d8ff,
-      shininess: 20,
-      waveHeight: 12,
-      waveSpeed: 0.45,
+      shininess: 10.00,
+      waveHeight: 8.00,
+      waveSpeed: 0.25,
       zoom: 0.9
-    });
+    })
   </script>
-
 </body>
-</html>
+</html>     
+
+
+
