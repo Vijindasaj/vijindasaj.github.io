@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vijindas AJ - Portfolio</title>
+
   <style>
     :root {
       --accent: #007bff;
@@ -29,11 +30,6 @@
       animation: gradientShift 60s ease-in-out infinite;
       overflow-x: hidden;
       position: relative;
-
-      /* ⭐ ADDED FOR PAGE SNAP */
-      scroll-snap-type: y mandatory;
-      height: 100vh;
-      overflow-y: scroll;
     }
 
     /* Subtle texture overlay */
@@ -51,9 +47,15 @@
     }
 
     @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     header {
@@ -83,10 +85,7 @@
     }
 
     section {
-      /* ⭐ UPDATED for snap */
-      min-height: 100vh; 
-      scroll-snap-align: start;
-
+      min-height: 90vh;
       padding: 100px 80px;
       opacity: 0;
       transform: translateY(40px);
@@ -176,7 +175,9 @@
     }
   </style>
 </head>
+
 <body>
+
   <header>
     <a href="#about">About</a>
     <a href="#education">Education</a>
@@ -190,31 +191,38 @@
     <div class="title">Hello, I'm Vijindas AJ</div>
     <p class="sub-text">
       AI & ML Student <br>
-      Curious about data models, algorithms & real-world automation. I enjoy solving problems and building clean applications using machine learning.
+      Curious about data models, algorithms & real-world automation.
+      I enjoy solving problems and building clean applications using machine learning.
     </p>
   </section>
 
   <section id="education">
     <div class="title">Education</div>
     <p class="sub-text">
-      Currently pursuing Plus Two (Computer Science) at <strong>St. Antony’s HSS, Pudukad</strong>.
+      Currently pursuing Plus Two (Computer Science) at
+      <strong>St. Antony’s HSS, Pudukad</strong>.
     </p>
   </section>
 
   <section id="visit">
     <div class="title">Learning Beyond Classrooms</div>
     <p class="sub-text">
-      Participated in an <strong>Industrial Visit</strong> at <strong>ATEES Industrial Training Pvt. Ltd.</strong> — gaining hands-on exposure to real-world software development and industry practices.
+      Participated in an <strong>Industrial Visit</strong> at
+      <strong>ATEES Industrial Training Pvt. Ltd.</strong> —
+      gaining hands-on exposure to real-world software development and industry practices.
     </p>
   </section>
 
   <section id="projects">
     <div class="title">Projects</div>
+
     <div class="projects-grid">
       <div class="project-box">
         <h2>Smart Study Hour Predictor</h2>
         <p>
-          A machine learning model that predicts productivity & focus scores based on daily habits like sleep, study hours, and device usage. It also recommends the best time to study for peak performance.
+          A machine learning model that predicts productivity & focus scores
+          based on daily habits like sleep, study hours, and device usage.
+          It also recommends the best time to study for peak performance.
         </p>
       </div>
     </div>
@@ -222,6 +230,7 @@
 
   <section id="skills">
     <div class="title">Skills</div>
+
     <div class="skills-list">
       <span>Machine Learning</span>
       <span>Python</span>
@@ -236,17 +245,25 @@
   <section id="contact">
     <div class="title">Contact</div>
     <p class="sub-text">
-      📧 Email: <a href="mailto:zudqlol@gmail.com" style="color:var(--accent);">zudqlol@gmail.com</a><br>
-      📞 Phone: <span style="color:var(--accent);">+91 7012977405</span><br>
-      🐙 GitHub: <a href="https://github.com/Vijindasaj" style="color:var(--accent);">Vijindasaj</a>
+      📧 Email:
+      <a href="mailto:zudqlol@gmail.com" style="color:var(--accent);">zudqlol@gmail.com</a><br>
+
+      📞 Phone:
+      <span style="color:var(--accent);">+91 7012977405</span><br>
+
+      🐙 GitHub:
+      <a href="https://github.com/Vijindasaj" style="color:var(--accent);">Vijindasaj</a>
     </p>
   </section>
 
-  <footer>© 2025 Vijindas AJ — Portfolio</footer>
+  <footer>
+    © 2025 Vijindas AJ — Portfolio
+  </footer>
 
   <!-- Scroll reveal -->
   <script>
     const sections = document.querySelectorAll("section");
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("visible");
@@ -256,9 +273,10 @@
     sections.forEach(sec => observer.observe(sec));
   </script>
 
-  <!-- Gentle wave animation -->
+  <!-- Wave animation -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+
   <script>
     VANTA.WAVES({
       el: "body",
@@ -275,5 +293,6 @@
       zoom: 0.9
     })
   </script>
+
 </body>
 </html>
