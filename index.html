@@ -237,23 +237,13 @@
 
   <footer>© 2025 Vijindas AJ — Portfolio</footer>
 
-  <!-- Scroll reveal -->
-  <script>
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.15 });
 
-    sections.forEach(sec => observer.observe(sec));
-  </script>
 
   <!-- Gentle wave animation -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.trunk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
   <script>
-    VANTA.TRUNK({
+    VANTA.WAVES({
       el: "body",
       mouseControls: false,
       touchControls: false,
@@ -270,6 +260,7 @@
   </script>
 </body>
 </html>
+
 
 
 
