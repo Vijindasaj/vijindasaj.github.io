@@ -29,6 +29,11 @@
       animation: gradientShift 60s ease-in-out infinite;
       overflow-x: hidden;
       position: relative;
+
+      /* ⭐ ADDED FOR PAGE SNAP */
+      scroll-snap-type: y mandatory;
+      height: 100vh;
+      overflow-y: scroll;
     }
 
     /* Subtle texture overlay */
@@ -78,7 +83,10 @@
     }
 
     section {
-      min-height: 90vh;
+      /* ⭐ UPDATED for snap */
+      min-height: 100vh; 
+      scroll-snap-align: start;
+
       padding: 100px 80px;
       opacity: 0;
       transform: translateY(40px);
@@ -268,7 +276,4 @@
     })
   </script>
 </body>
-</html>     
-
-
-
+</html>
