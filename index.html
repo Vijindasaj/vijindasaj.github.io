@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vijindas AJ - Portfolio</title>
-
   <style>
     :root {
       --accent: #007bff;
@@ -22,23 +21,24 @@
       scroll-behavior: smooth;
     }
 
-    /* 👇 ADDED: Scroll snap container */
+    /* -------- PAGE SNAPPING -------- */
     body {
       font-family: "Poppins", sans-serif;
       color: var(--text-dark);
-
       background: linear-gradient(270deg, #f2f9ff, #d9edff, #e8f6ff);
       background-size: 600% 600%;
       animation: gradientShift 60s ease-in-out infinite;
-
       overflow-x: hidden;
-      position: relative;
 
-      scroll-snap-type: y mandatory;   /* NEW */
-      height: 100vh;                  /* IMPORTANT */
+      /* PAGE SNAP FEATURE */
+      scroll-snap-type: y mandatory;
+      height: 100vh;
+      overflow-y: scroll;
+
+      position: relative;
     }
 
-    /* Subtle texture overlay */
+    /* Subtle texture */
     body::before {
       content: "";
       position: fixed;
@@ -46,7 +46,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://www.toptal.com/designers/subtlepatterns/checkerboard-cross-pattern/');
+      background: url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png');
       opacity: 0.1;
       z-index: -1;
       pointer-events: none;
@@ -84,9 +84,8 @@
       text-shadow: 0 0 8px var(--accent-light);
     }
 
-    /* 👇 ADDED: each section behaves like a snap slide */
     section {
-      min-height: 100vh;      /* changed from 90vh */
+      min-height: 90vh;
       padding: 100px 80px;
       opacity: 0;
       transform: translateY(40px);
@@ -94,7 +93,8 @@
       transition: all 1.5s ease;
       border-bottom: 1px solid rgba(0, 123, 255, 0.1);
 
-      scroll-snap-align: start;   /* NEW */
+      /* SNAP EACH PAGE */
+      scroll-snap-align: start;
     }
 
     section.visible {
@@ -175,120 +175,110 @@
       backdrop-filter: blur(6px);
       font-size: 14px;
       color: #093b74;
+
+      /* Snap footer too */
+      scroll-snap-align: start;
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#visit">Industrial Visit</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </header>
 
-<header>
-  <a href="#about">About</a>
-  <a href="#education">Education</a>
-  <a href="#visit">Industrial Visit</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</header>
+  <section id="about">
+    <div class="title">Hello, I'm Vijindas AJ</div>
+    <p class="sub-text">
+      AI & ML Student <br>
+      Curious about data models, algorithms & real-world automation. I enjoy solving problems and building clean applications using machine learning.
+    </p>
+  </section>
 
-<section id="about">
-  <div class="title">Hello, I'm Vijindas AJ</div>
-  <p class="sub-text">
-    AI & ML Student <br>
-    Curious about data models, algorithms & real-world automation. 
-    I enjoy solving problems and building clean applications using machine learning.
-  </p>
-</section>
+  <section id="education">
+    <div class="title">Education</div>
+    <p class="sub-text">
+      Currently pursuing Plus Two (Computer Science) at <strong>St. Antony’s HSS, Pudukad</strong>.
+    </p>
+  </section>
 
-<section id="education">
-  <div class="title">Education</div>
-  <p class="sub-text">
-    Currently pursuing Plus Two (Computer Science) at
-    <strong>St. Antony’s HSS, Pudukad</strong>.
-  </p>
-</section>
+  <section id="visit">
+    <div class="title">Learning Beyond Classrooms</div>
+    <p class="sub-text">
+      Participated in an <strong>Industrial Visit</strong> at <strong>ATEES Industrial Training Pvt. Ltd.</strong> — gaining hands-on exposure to real-world software development and industry practices.
+    </p>
+  </section>
 
-<section id="visit">
-  <div class="title">Learning Beyond Classrooms</div>
-  <p class="sub-text">
-    Participated in an <strong>Industrial Visit</strong> at
-    <strong>ATEES Industrial Training Pvt. Ltd.</strong> —
-    gaining hands-on exposure to real-world software development and industry practices.
-  </p>
-</section>
-
-<section id="projects">
-  <div class="title">Projects</div>
-
-  <div class="projects-grid">
-    <div class="project-box">
-      <h2>Smart Study Hour Predictor</h2>
-      <p>
-        A machine learning model that predicts productivity & focus scores
-        based on habits like sleep, study hours, and device usage.
-      </p>
+  <section id="projects">
+    <div class="title">Projects</div>
+    <div class="projects-grid">
+      <div class="project-box">
+        <h2>Smart Study Hour Predictor</h2>
+        <p>
+          A machine learning model that predicts productivity & focus scores based on daily habits like sleep, study hours, and device usage. It also recommends the best time to study for peak performance.
+        </p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="skills">
-  <div class="title">Skills</div>
-  <div class="skills-list">
-    <span>Machine Learning</span>
-    <span>Python</span>
-    <span>Numpy</span>
-    <span>Pandas</span>
-    <span>Matplotlib</span>
-    <span>Seaborn</span>
-    <span>Data Analysis</span>
-  </div>
-</section>
+  <section id="skills">
+    <div class="title">Skills</div>
+    <div class="skills-list">
+      <span>Machine Learning</span>
+      <span>Python</span>
+      <span>Numpy</span>
+      <span>Pandas</span>
+      <span>Matplotlib</span>
+      <span>Seaborn</span>
+      <span>Data Analysis</span>
+    </div>
+  </section>
 
-<section id="contact">
-  <div class="title">Contact</div>
-  <p class="sub-text">
-    📧 Email:
-    <a href="mailto:zudqlol@gmail.com" style="color:var(--accent);">zudqlol@gmail.com</a><br>
-    📞 Phone:
-    <span style="color:var(--accent);">+91 7012977405</span><br>
-    🐙 GitHub:
-    <a href="https://github.com/Vijindasaj" style="color:var(--accent);">Vijindasaj</a>
-  </p>
-</section>
+  <section id="contact">
+    <div class="title">Contact</div>
+    <p class="sub-text">
+      📧 Email: <a href="mailto:zudqlol@gmail.com" style="color:var(--accent);">zudqlol@gmail.com</a><br>
+      📞 Phone: <span style="color:var(--accent);">+91 7012977405</span><br>
+      🐙 GitHub: <a href="https://github.com/Vijindasaj" style="color:var(--accent);">Vijindasaj</a>
+    </p>
+  </section>
 
-<footer>© 2025 Vijindas AJ — Portfolio</footer>
+  <footer>© 2025 Vijindas AJ — Portfolio</footer>
 
-<!-- Scroll reveal -->
-<script>
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting)
-        entry.target.classList.add("visible");
-    });
-  }, { threshold: 0.15 });
+  <!-- Scroll reveal -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.15 });
 
-  sections.forEach(sec => observer.observe(sec));
-</script>
+    sections.forEach(sec => observer.observe(sec));
+  </script>
 
-<!-- VANTA Waves -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
-<script>
-  VANTA.WAVES({
-    el: "body",
-    mouseControls: false,
-    touchControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: 0xa8d8ff,
-    shininess: 10.00,
-    waveHeight: 8.00,
-    waveSpeed: 0.25,
-    zoom: 0.9
-  })
-</script>
-
+  <!-- Gentle wave animation -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+      el: "body",
+      mouseControls: false,
+      touchControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0xa8d8ff,
+      shininess: 10.00,
+      waveHeight: 8.00,
+      waveSpeed: 0.25,
+      zoom: 0.9
+    })
+  </script>
 </body>
 </html>
